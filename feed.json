@@ -1,0 +1,65 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "RAKIFSUL FULL STACK",
+    "description": "",
+    "home_page_url": "https://fullstack.rakifsul.my.id",
+    "feed_url": "https://fullstack.rakifsul.my.id/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "RAKIFSUL"
+    },
+    "items": [
+        {
+            "id": "https://fullstack.rakifsul.my.id/daftar-framework-single-page-app-2023.html",
+            "url": "https://fullstack.rakifsul.my.id/daftar-framework-single-page-app-2023.html",
+            "title": "Daftar Framework Single Page App 2023",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Lain-Lain"
+            ],
+            "date_published": "2023-12-22T19:48:18+07:00",
+            "date_modified": "2023-12-22T19:48:18+07:00"
+        },
+        {
+            "id": "https://fullstack.rakifsul.my.id/belajar-jquery-menggunakan-jquery-di-html.html",
+            "url": "https://fullstack.rakifsul.my.id/belajar-jquery-menggunakan-jquery-di-html.html",
+            "title": "Belajar jQuery - Menggunakan jQuery di HTML",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Dasar jQuery"
+            ],
+            "date_published": "2023-12-22T19:47:04+07:00",
+            "date_modified": "2023-12-22T19:47:04+07:00"
+        },
+        {
+            "id": "https://fullstack.rakifsul.my.id/belajar-react-membuat-project.html",
+            "url": "https://fullstack.rakifsul.my.id/belajar-react-membuat-project.html",
+            "title": "Belajar React - Membuat Project",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Dasar React"
+            ],
+            "date_published": "2023-12-22T19:46:20+07:00",
+            "date_modified": "2023-12-22T19:46:20+07:00"
+        },
+        {
+            "id": "https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html",
+            "url": "https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html",
+            "title": "Belajar Node.js - Membuat Project",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Dasar Node.js"
+            ],
+            "date_published": "2023-12-22T19:45:09+07:00",
+            "date_modified": "2023-12-22T19:45:43+07:00"
+        }
+    ]
+}
