@@ -3,7 +3,7 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-22T19:48:18+07:00</updated>
+    <updated>2023-12-23T03:45:18+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
@@ -18,9 +18,31 @@
         <id>https://fullstack.rakifsul.my.id/daftar-framework-single-page-app-2023.html</id>
             <category term="Lain-Lain"/>
 
-        <updated>2023-12-22T19:48:18+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-23T03:31:42+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Single page app adalah jenis aplikasi web yang ketika dinavigasi biasanya tidak memerlukan refresh halaman. Berikut ini adalah daftar framework single page app di tahun 2023: Kira-kira itu saja daftarnya, barangkali cukup membantu.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Single page app adalah jenis aplikasi web yang ketika dinavigasi biasanya tidak memerlukan refresh halaman.</p>
+<p>Berikut ini adalah daftar framework single page app di tahun 2023:</p>
+<ol>
+<li>React js</li>
+<li>Angular js</li>
+<li>Ember js</li>
+<li>Backbone js</li>
+<li>Vue js</li>
+<li>Meteor</li>
+<li>Polymer</li>
+<li>Dojo Toolkit</li>
+<li>Aurelia</li>
+<li>Svelte</li>
+</ol>
+<p>Kira-kira itu saja daftarnya, barangkali cukup membantu.</p>
+            ]]>
+        </content>
     </entry>
     <entry>
         <title>Belajar jQuery - Menggunakan jQuery di HTML</title>
@@ -31,22 +53,143 @@
         <id>https://fullstack.rakifsul.my.id/belajar-jquery-menggunakan-jquery-di-html.html</id>
             <category term="Dasar jQuery"/>
 
-        <updated>2023-12-22T19:47:04+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-23T03:27:03+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan jQuery adalah library javascript yang digunakan untuk memanipulasi DOM. Walaupun jQuery sudah cukup tua, tapi, sampai sekarang, ternyata jQuery masih digunakan pada aplikasi-aplikasi web. Terutama yang multi page app. Jadi, jangan heran jika Anda membaca source code sistem informasi yang dibuat dengan Laravel atau&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>jQuery adalah library javascript yang digunakan untuk memanipulasi DOM.</p>
+<p>Walaupun jQuery sudah cukup tua, tapi, sampai sekarang, ternyata jQuery masih digunakan pada aplikasi-aplikasi web.</p>
+<p>Terutama yang multi page app.</p>
+<p>Jadi, jangan heran jika Anda membaca source code sistem informasi yang dibuat dengan Laravel atau CodeIgniter, ternyata masih menggunakan jQuery.</p>
+<p>Di tutorial ini, saya akan membahas beberapa cara untuk menggunakan jQuery di file HTML Anda.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca mengenal jQuery.</li>
+<li>Pembaca bisa menggunakan jQuery.</li>
+</ul>
+<h2>Prasyarat</h2>
+<ul>
+<li>Pembaca telah mengenal HTML, CSS, dan JavaScript.</li>
+<li>Pembaca pernah coding sebelumnya.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buat folder bernama "tutorial-0".</p>
+<p>Sebenarnya, nama foldernya bebas, tapi agar tutorial ini lebih mudah dipahami, maka gunakan saja nama tersebut.</p>
+<p>Selanjutnya, buat file bernama "index.html" di dalamnya.</p>
+<p>Isi file tersebut adalah:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(document).ready(function() {
+      alert("hello world");
+    })
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Catat bahwa bagian ini:</p>
+<pre class="language-html line-numbers"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Bisa diganti dengan:</p>
+<pre class="language-html line-numbers"><code>&lt;script src="/path/ke/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Artinya bisa download script jQuery-nya dulu, kemudian dimuat secara offline.</p>
+<p>Sampai di sini langkah-langkah selesai.</p>
+<p>Jika Anda membuka "index.html" dengan web browser, maka akan muncul popup berisi "hello world".</p>
+<h2>Pembahasan</h2>
+<p>Langkah pertama penggunaan jQuery adalah membuat file HTML dulu.</p>
+<p>Selanjutnya, ada dua pilihan:</p>
+<ul>
+<li>Men-download script jQuery dulu di website resminya, kemudian menggunakannya secara offline.</li>
+<li>Menggunakan CDN untuk menggunakan jQuery.</li>
+</ul>
+<p>Yang terlihat dari kedua bagian script ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!-- menggunakan jQuery secara offline --&gt;
+&lt;script src="/path/ke/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<pre class="language-html line-numbers"><code>&lt;!-- Menggunakan jQuery dengan CDN --&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Keuntungan menggunakan cara pertama adalah, kita jadi tidak perlu koneksi internet untuk menggunakan jQuery.</p>
+<p>Selanjutnya, pada bagian kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;script&gt;
+    $(document).ready(function() {
+      alert("hello world");
+    })
+  &lt;/script&gt;</code></pre>
+<p>Kita menunggu DOM siap untuk mengeksekusi javascript, kemudian setelah siap, maka munculkan popup bertuliskan "hello world".</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda sudah mengenal jQuery dan dapat menggunakannya dalam file HTML Anda.</p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
     </entry>
     <entry>
-        <title>Belajar React - Membuat Project</title>
+        <title>Belajar React - Membuat Project dengan create-react-app</title>
         <author>
             <name>RAKIFSUL</name>
         </author>
-        <link href="https://fullstack.rakifsul.my.id/belajar-react-membuat-project.html"/>
-        <id>https://fullstack.rakifsul.my.id/belajar-react-membuat-project.html</id>
+        <link href="https://fullstack.rakifsul.my.id/belajar-react-membuat-project-dengan-create-react-app.html"/>
+        <id>https://fullstack.rakifsul.my.id/belajar-react-membuat-project-dengan-create-react-app.html</id>
             <category term="Dasar React"/>
 
-        <updated>2023-12-22T19:46:20+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-23T03:45:18+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan React atau React js adalah framework aplikasi web yang bisa digunakan untuk membuat single page app. Single page app itu sendiri merupakan aplikasi web yang ketika dinavigasi, tidak terjadi page refresh. Itu karena single page app biasanya menggunakan AJAX untuk mengakses backend yang biasanya&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>React atau React js adalah framework aplikasi web yang bisa digunakan untuk membuat single page app.</p>
+<p>Single page app itu sendiri merupakan aplikasi web yang ketika dinavigasi, tidak terjadi page refresh.</p>
+<p>Itu karena single page app biasanya menggunakan AJAX untuk mengakses backend yang biasanya berupa API.</p>
+<p>Konsekuensinya, aplikasi semacam itu hanya bisa berjalan normal jika javascript di browser diaktifkan.</p>
+<p>Di tutorial ini, saya membahas cara membuat project React dengan create-react-app.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca mengenal React dan create-react-app</li>
+<li>Pembaca dapat membuat project React dengan create-react-app.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, pastikan Anda telah meng-install Node.js dan NPM, karena create-react-app membutuhkannya.</p>
+<p>Selanjutnya jalankan:</p>
+<pre>npx create-react-app nama-project</pre>
+<p>Nanti akan muncul prompt, pilih saja yes atau y.</p>
+<p>Tunggu beberapa saat hingga prosesnya selesai.</p>
+<p>Setelah selesai, Anda bisa menjalankan aplikasi React Anda.</p>
+<p>Caranya, masuk ke dalam folder "nama-project":</p>
+<pre>cd nama-project</pre>
+<p>Kemudian:</p>
+<pre>npm start</pre>
+<h2>Pembahasan</h2>
+<p>Tidak ada yang perlu dibahas di sini.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya tujuan tutorial ini sudah tercapai.</p>
+            ]]>
+        </content>
     </entry>
     <entry>
         <title>Belajar Node.js - Membuat Project</title>
@@ -57,8 +200,97 @@
         <id>https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html</id>
             <category term="Dasar Node.js"/>
 
-        <updated>2023-12-22T19:45:43+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-23T03:03:17+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Node.js adalah sebuah platform runtime environment yang bisa digunakan untuk banyak hal. Salah satu manfaat dari Node.js adalah membuat backend dari aplikasi web. Tapi, sebenarnya tidak hanya itu. Secara keseluruhan, Node.js juga bisa digunakan untuk membuat aplikasi command line, bahkan menjadi bagian dari Electron&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Node.js adalah sebuah platform runtime environment yang bisa digunakan untuk banyak hal.</p>
+<p>Salah satu manfaat dari Node.js adalah membuat backend dari aplikasi web.</p>
+<p>Tapi, sebenarnya tidak hanya itu.</p>
+<p>Secara keseluruhan, Node.js juga bisa digunakan untuk membuat aplikasi command line, bahkan menjadi bagian dari Electron js yang digunakan untuk aplikasi desktop GUI.</p>
+<p>Saat Node.js diinstall, biasanya NPM juga ikut terinstall.</p>
+<p>NPM itu sendiri adalah package manager yang fungsinya untuk memanajemen package-package yang digunakan dalam sebuah project Node.js, bahkan selain Node.js sekalipun.</p>
+<p>Jadi tidak aneh jika React juga bisa menggunakan NPM untuk memanajemen package-package yang digunakan di dalamnya.</p>
+<p>Dalam tutorial ini, kita akan membuat project Node.js dari nol dengan menggunakan npm.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu membuat project Node.js dari nol.</li>
+<li>Pembaca mengenal Node.js dan NPM.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, pastikan Anda telah meng-install Node.js dan NPM.</p>
+<p>Selanjutnya, buatlah folder bernama "tutorial-0".</p>
+<p>Sebenarnya, nama foldernya bisa apapun, tapi dalam tutorial ini, gunakan saja nama tersebut agar tutorial ini lebih mudah dipahami.</p>
+<p>Sekarang, buka folder "tutorial-0" dengan command line.</p>
+<p>Kemudian, jalankan:</p>
+<pre>npm init -y</pre>
+<p>Nanti, akan muncul file bernama "package.json" yang isinya seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "tutorial-0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<p>Selanjutnya, Anda bisa membuat file baru bernama "index.js" di dalam folder tersebut.</p>
+<p>Alternatifnya, Anda bisa ganti "index.js" dengan "yanglain.js" di file "package.json" dan membuat file "yanglain.js" bukannya "index.js" di dalam folder "tutorial-0".</p>
+<p>Dengan kata lain, bebas-bebas saja...</p>
+<p>Sekarang, buka file "index.js" dengan teks editor, kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// mem-print teks "hello world".
+console.log("hello world");</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>node index.js</pre>
+<p>Nanti akan muncul output:</p>
+<pre>hello world</pre>
+<p>Sampai di sini langkah-langkahnya selesai.</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita telah selesai membuat project dengan perintah:</p>
+<pre>npm init -y</pre>
+<p>Perintah tersebut akan membuatkan "package.json" dengan isi default.</p>
+<p>Jika tanpa "-y":</p>
+<pre>npm init</pre>
+<p>Nanti Anda akan melihat prompt untuk melakukan perubahan isi dari "package.json".</p>
+<p>Namun, jika Anda ingin mengubah isi dari "package.json", sebenarnya Anda juga bisa menggunakan teks editor setelah "package.json" dibuat.</p>
+<p>Jadi, bebas-bebas sajalah...</p>
+<p>Sekarang, kita bahas isi dari file "index.js".</p>
+<p>Script "index.js" yang berisi:</p>
+<pre class="language-javascript line-numbers"><code>// mem-print teks "hello world".
+console.log("hello world");</code></pre>
+<p>Tidak mem-print:</p>
+<pre>// mem-print teks "hello world".</pre>
+<p>Tapi hanya:</p>
+<pre>hello world</pre>
+<p>Saja. Itu karena karakter "//" gunanya adalah untuk menandai komentar dan setiap komentar tidak dieksekusi.</p>
+<p>Jadi, tanda "//" berfungsi ganda: sebagai komentar dan untuk menonaktifkan kode.</p>
+<p>Setelah project dibuat, Anda bisa dengan aman meng-install package-package dari NPM.</p>
+<p>Karena, daftarnya akan dimasukkan ke file "package.json".</p>
+<p>Tepatnya di property "dependencies" jika menggunakan perintah:</p>
+<pre>npm install &lt;nama-package&gt;</pre>
+<p>Dan di property "devDependencies" jika menggunakan perintah:</p>
+<pre>npm install &lt;nama-package&gt; --save-dev</pre>
+<p>Tapi ingat, perintah tadi harus dijalankan dalam folder project, yakni yang ada file "package.json"-nya.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Node.js, NPM, dan cara menggunakannya.</p>
+<p>Membuat project Node.js seharusnya tidak masalah sekarang.</p>
+            ]]>
+        </content>
     </entry>
 </feed>
