@@ -3,12 +3,77 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-24T00:03:46+07:00</updated>
+    <updated>2023-12-24T00:07:44+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://fullstack.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar Node.js - Menampilkan Machine ID</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://fullstack.rakifsul.my.id/belajar-nodejs-menampilkan-machine-id.html"/>
+        <id>https://fullstack.rakifsul.my.id/belajar-nodejs-menampilkan-machine-id.html</id>
+            <category term="Dasar Node.js"/>
+
+        <updated>2023-12-24T00:07:35+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Kali ini, kita akan belajar cara menampilkan machine ID di Node.js Ketika kita membuat sebuah aplikasi, terutama aplikasi desktop, mungkin saja kita ingin membatasi penginstallan aplikasi tersebut pada satu komputer saja. Dengan kata lain kita mungkin menginginkan sebuah sistem lisensi dalam aplikasi kita. Agar&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Kali ini, kita akan belajar cara menampilkan machine ID di Node.js</p>
+<p>Ketika kita membuat sebuah aplikasi, terutama aplikasi desktop, mungkin saja kita ingin membatasi penginstallan aplikasi tersebut pada satu komputer saja.</p>
+<p>Dengan kata lain kita mungkin menginginkan sebuah sistem lisensi dalam aplikasi kita.</p>
+<p>Agar hal tersebut dapat terwujud diperlukan suatu cara untuk mendapatkan identitas unik dari OS di komputer tersebut.</p>
+<p>Node Machine ID ( <a href="https://www.npmjs.com/package/node-machine-id">https://www.npmjs.com/package/node-machine-id</a> ) bisa membantu kita untuk mendapatkan unique id dari OS yang menggunakannya.</p>
+<p>Pada dasarnya Node Machine ID menggunakan registry untuk mendapatkan unique id di Windows.</p>
+<p>Tepatnya di “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography”.</p>
+<h2>Langkah-Langkah</h2>
+<p>Buat folder bernama "tutorial-7", kemudian masuk ke dalamnya.</p>
+<p>Selanjutnya buat file "tampilkan-machine-id-asynchronous.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: tampilkan-machine-id-asynchronous.js
+
+// import modul node-machine-id
+const machineId = require("node-machine-id").machineId;
+
+// ambil machine id nya
+async function dapatkanMachineID(original) {
+    let mcid = await machineId({ original: original });
+    return mcid;
+}
+
+// bungkus dalam sebuah function
+async function run() {
+    let mcid = await dapatkanMachineID(true);
+    console.log(mcid);
+}
+
+// jalankan
+run();</code></pre>
+<p>Selanjutnya buat file "tampilkan-machine-id-synchronous.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: tampilkan-machine-id-synchronous.js
+
+// import modul node-machine-id
+const machineIdSync = require("node-machine-id").machineIdSync;
+
+// ambil machine id nya
+let mcid = machineIdSync({ original: true });
+console.log(mcid);</code></pre>
+<p>Untuk menjalankan kode-kode tadi, buka folder projectnya via terminal, kemudian jalankan perintah:</p>
+<pre>node &lt;nama_script&gt;</pre>
+<h2>Pembahasan</h2>
+<p>Baca komentar di kode-kode barusan dan pahami sendiri.</p>
+<h2>Penutup</h2>
+<p>Sekian dan terima kasih.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Belajar Node.js - Membaca dan Menulis File</title>
         <author>
@@ -18,7 +83,7 @@
         <id>https://fullstack.rakifsul.my.id/belajar-nodejs-membaca-dan-menulis-file.html</id>
             <category term="Dasar Node.js"/>
 
-        <updated>2023-12-24T00:03:46+07:00</updated>
+        <updated>2023-12-24T00:07:44+07:00</updated>
             <summary>
                 <![CDATA[
                     Pendahuluan Kali ini, kita akan belajar membaca dan menulis file di Node.js. Pada dasarnya, untuk melakukan itu ada beberapa metode: Di bawah ini ada 4 script. readfile.js dan readfilesync.js menunjukkan cara untuk membaca file, writefile.js dan writefilesync.js menunjukkan cara untuk menulis file. Yang memiliki akhiran&hellip;
@@ -130,7 +195,7 @@ writeHello();</code></pre>
 <p>Selanjutnya, buat file bernama "hello.txt" dan isi dengan:</p>
 <pre>hello world</pre>
 <p>Untuk menjalankan kode-kode tadi, buka folder projectnya via terminal, kemudian jalankan perintah:</p>
-<p>node &lt;nama_script&gt;</p>
+<pre>node &lt;nama_script&gt;</pre>
 <h2>Pembahasan</h2>
 <p>Baca komentar di kode-kode barusan dan pahami sendiri.</p>
 <h2>Penutup</h2>
