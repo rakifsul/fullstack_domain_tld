@@ -3,12 +3,147 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-23T15:37:18+07:00</updated>
+    <updated>2023-12-23T16:26:47+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://fullstack.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar Node.js – Hello World dengan Express</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://fullstack.rakifsul.my.id/belajar-nodejs-hello-world-dengan-express.html"/>
+        <id>https://fullstack.rakifsul.my.id/belajar-nodejs-hello-world-dengan-express.html</id>
+            <category term="Dasar Node.js"/>
+
+        <updated>2023-12-23T16:26:47+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Membuat aplikasi server dengan Node.js tanpa framework itu memungkinkan. Seperti apa yang dijelaskan pada tutorial sebelumnya. Namun, dengan menggunakan Express, sebenarnya kita telah banyak menghemat waktu penulisan kode. Itu karena dengan menggunakan Express, banyak hal yang kompleks dilakukan di balik layar. Pada tutorial sebelumnya,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Membuat aplikasi server dengan Node.js tanpa framework itu memungkinkan.</p>
+<p>Seperti apa yang dijelaskan <a href="https://fullstack.rakifsul.my.id/belajar-nodejs-hello-world-tanpa-framework.html">pada tutorial sebelumnya</a>.</p>
+<p>Namun, dengan menggunakan Express, sebenarnya kita telah banyak menghemat waktu penulisan kode.</p>
+<p>Itu karena dengan menggunakan Express, banyak hal yang kompleks dilakukan di balik layar.</p>
+<p>Pada tutorial sebelumnya, aplikasi yang kita buat masih sederhana.</p>
+<p>Jadi, mungkin saja kode yang ditulis hanya sedikit.</p>
+<p>Lalu, bagaimana jika aplikasi yang kita buat cukup besar?</p>
+<p>Tanpa menggunakan framework tentunya akan merepotkan.</p>
+<p>Oleh karena itu, mempelajari framework Node.js seperti Express menurut saya cukup bermanfaat.</p>
+<p>Pada tutorial ini, saya akan membahas cara membuat aplikasi hello world dengan Node.js dan Express.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu membuat aplikasi hello world menggunakan Express.</li>
+<li>Pembaca mengenal Express.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-3" dengan cara yang telah dijelaskan <a href="https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+    "name": "tutorial-3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import module express
+const express = require("express");
+
+// inisialisasi express
+const server = express();
+
+// handle request "/"
+server.get("/", (req, res, next) =&gt; {
+    // response dengan teks "Hello World!", kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});
+
+// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});
+</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>npm install</pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>Nanti akan muncul output:</p>
+<pre>Hello World!</pre>
+<p>Di browser Anda.</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Selanjutnya, kita menjalankan perintah npm install tanpa diikuti nama package.</p>
+<p>Itu maksudnya adalah untuk meng-install seluruh dependencies yang tertulis di "package.json", dalam hal ini hanya Express.</p>
+<p>Pada "index.js", kita mulai dari mengimpor modul express:</p>
+<pre class="language-javascript line-numbers"><code>// import module express
+const express = require("express");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul express dan menyimpannya dalam const express.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul pihak ke-3, maka kita perlu meng-install-nya terlebih dahulu dengan npm. Kita telah melakukannya dengan npm install tadi.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Pada baris kode selanjutnya, kita menginisialisasi dan membuat objek express:</p>
+<pre class="language-javascript line-numbers"><code>// inisialisasi express
+const server = express();</code></pre>
+<p>Objek tersebut disimpan pada const server.</p>
+<p>Selanjutnya, server melakukan filter terhadap request GET ke path "/" atau root:</p>
+<pre class="language-javascript line-numbers"><code>// handle request "/"
+server.get("/", (req, res, next) =&gt; {
+    // response dengan teks "Hello World!", kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});</code></pre>
+<p>Request tadi direspon dengan teks "Hello World!", kemudian diakhiri dengan res.end().</p>
+<p>Yang perlu Anda ingat di kode tadi adalah bahwa kode tadi bersifat pasif.</p>
+<p>Dengan kata lain, kita tidak memerintahkan server untuk membuka browser client dan menampilkan teks "Hello World!", melainkan menunggu ada request dari browser client, dan jika request itu datang, maka tangani dengan callback di parameternya, sehingga teks "Hello World!" akan tampil.</p>
+<p>Selanjutnya, kita menjalankan server tersebut dengan cara melakukan listen di port 3000:</p>
+<pre class="language-javascript line-numbers"><code>// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Dalam keadaan ini, port 3000 sedang digunakan oleh aplikasi ini.</p>
+<p>Jadi, jika Anda menjalankan aplikasi lain yang harus menggunakan port 3000, maka kemungkinan aplikasi lain tersebut akan tidak berjalan.</p>
+<p>Hal sebaliknya juga berlaku.</p>
+<p>Jika sebelum aplikasi ini dijalankan port 3000 sedang digunakan, maka aplikasi ini juga tidak akan berjalan.</p>
+<p>Lalu, kenapa kita mengakses aplikasi ini di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>?</p>
+<p>Itu karena, port 3000 adalah port yang kita gunakan untuk server express di aplikasi ini.</p>
+<p>Adapun domain dari komputer lokal kita adalah localhost.</p>
+<p>Selain itu, kita juga menggunakan protokol http dalam aplikasi ini.</p>
+<p>Adapun penambahan "/" di akhir URL berarti browser melakukan request terhadap path "/" di server express.</p>
+<p>Maka, yang perlu diakses browser untuk melihat output aplikasi ini adalah:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Express dan cara menggunakannya.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Belajar Node.js – Hello World Tanpa Framework</title>
         <author>
