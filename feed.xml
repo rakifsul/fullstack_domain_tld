@@ -3,12 +3,123 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-23T03:45:18+07:00</updated>
+    <updated>2023-12-23T15:00:00+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://fullstack.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar Node.js - Menggunakan Nodemon</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://fullstack.rakifsul.my.id/belajar-nodejs-menggunakan-nodemon.html"/>
+        <id>https://fullstack.rakifsul.my.id/belajar-nodejs-menggunakan-nodemon.html</id>
+            <category term="Dasar Node.js"/>
+
+        <updated>2023-12-23T15:00:00+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Dalam membangun aplikasi Node.js, bukan tidak mungkin akan ada perubahan dalam script Node.js yang kita buat. Akan tetapi, perubahan kode tersebut hanya bisa dilihat jika aplikasi Node.js-nya di-restart. Mungkin tidak masalah jika aplikasi yang kita buat berjalan selewat saja, seperti misalnya aplikasi command line.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Dalam membangun aplikasi Node.js, bukan tidak mungkin akan ada perubahan dalam script Node.js yang kita buat.</p>
+<p>Akan tetapi, perubahan kode tersebut hanya bisa dilihat jika aplikasi Node.js-nya di-restart.</p>
+<p>Mungkin tidak masalah jika aplikasi yang kita buat berjalan selewat saja, seperti misalnya aplikasi command line.</p>
+<p>Namun, dalam aplikasi web, biasanya akan ada infinite loop untuk melakukan listen port tertentu.</p>
+<p>Artinya, jika aplikasi semacam tadi mengalami perubahan kode, kita harus menghentikan aplikasi tersebut, kemudian menjalankannya lagi.</p>
+<p>Jika itu dilakukan manual dan secara sering, tentunya akan merepotkan.</p>
+<p>Di sinilah nodemon dapat membantu kita.</p>
+<p>nodemon adalah salah satu package NPM yang fungsinya mengawasi script-script dalam project Node.js.</p>
+<p>Setelah nodemon dijalankan, maka jika ada script yang diawasinya berubah, kemudian di-save, maka nodemon akan secara otomatis me-restart aplikasi.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu menggunakan nodemon.</li>
+<li>Pembaca mengenal nodemon.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-1" dengan cara yang telah dijelaskan <a href="https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "tutorial-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e js,html -w ./ index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>const express = require("express");
+const app = express();
+
+app.get("/", (req, res, next) =&gt; {
+    res.sendFile(__dirname + "/views/" + "index.html");
+});
+
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000");
+});</code></pre>
+<p>Selanjutnya buat folder "views" yang di dalamnya ada file "index.html".</p>
+<p>Isi file "index.html" adalah seperti ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Belajar Nodemon&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Belajar Nodemon&lt;/h1&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Selanjutnya, install express:</p>
+<pre>npm install express</pre>
+<p>Dan install nodemon sebagai dev dependencies:</p>
+<pre>npm install nodemon --save-dev</pre>
+<p>Nanti, di "package.json" akan ada tambahan entry:</p>
+<pre class="language-json line-numbers"><code>"dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }</code></pre>
+<p>Catat bahwa versinya mungkin berbeda dengan "package.json" milik saya.</p>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Selanjutnya, ubah file "index.js", kemudian save, kemudian perhatikan command line, akan terlihat bahwa aplikasi ini di-restart</p>
+<p>Itu juga akan terjadi jika kita mengubah dan men-save "index.html".</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Karena kita telah menginstall nodemon, maka perintah node diganti dengan nodemon, sesuai dengan yang ada di "package.json":</p>
+<pre class="language-json line-numbers"><code>"dev": "nodemon -e js,html -w ./ index.js"</code></pre>
+<p>Menurut kode itu, saat perintah npm run dev dijalankan, semua file berekstensi ".js" dan ".html" yang ada di folder project dan subfoldernya akan diawasi.</p>
+<p>Jika terjadi perubahan, maka aplikasi akan di-restart.</p>
+<p>Dengan kata lain, parameter "-e" menentukan ekstensi apa yang diawasi dan parameter "-w" menentukan folder mana yang diawasi.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal nodemon dan cara menggunakannya.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Daftar Framework Single Page App 2023</title>
         <author>
