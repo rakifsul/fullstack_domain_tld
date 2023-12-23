@@ -3,12 +3,214 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-23T19:19:50+07:00</updated>
+    <updated>2023-12-23T23:54:11+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://fullstack.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar Node.js – Menggunakan Express Router</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://fullstack.rakifsul.my.id/belajar-nodejs-menggunakan-express-router.html"/>
+        <id>https://fullstack.rakifsul.my.id/belajar-nodejs-menggunakan-express-router.html</id>
+            <category term="Dasar Node.js"/>
+
+        <updated>2023-12-23T23:54:11+07:00</updated>
+            <summary>
+                <![CDATA[
+                    CATATAN: Perhatikan bahwa awalan "/" dalam tutorial ini berarti root folder. Ini akan diikuti dengan nama file, baik untuk di root folder maupun sub folder-nya. Menangani request dan memberi response dari user merupakan hal yang sangat sering dilakukan dengan Express. Sebenarnya, tanpa router sekalipun, kita&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <blockquote>
+<p>CATATAN: Perhatikan bahwa awalan "/" dalam tutorial ini berarti root folder. Ini akan diikuti dengan nama file, baik untuk di root folder maupun sub folder-nya.</p>
+</blockquote>
+<h2>Pendahuluan</h2>
+<p>Menangani request dan memberi response dari user merupakan hal yang sangat sering dilakukan dengan Express.</p>
+<p>Sebenarnya, tanpa router sekalipun, kita tetap bisa membuat server dan meng-handle request dengan Express.</p>
+<p>Namun, ketika aplikasi semakin besar dan semakin banyak request handler-nya, tentunya satu file script akan semakin panjang karena request handler tadi.</p>
+<p>Agar routes dalam aplikasi yang menggunakan Express lebih rapi, maka digunakan Router.</p>
+<p>Dengan router, request handler bisa dipisahkan ke file-file script terpisah sehingga lebih rapi.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mengenal router dalam Express.</li>
+<li>Pembaca mampu menggunakan router dengan Express.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-5" dengan cara yang telah dijelaskan <a href="https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "/package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+    "name": "tutorial-5",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
+</code></pre>
+<p>Selanjutnya, isi file "/index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import module express
+const express = require("express");
+
+// inisialisasi express
+const app = express();
+
+// begin: import routers
+const indexRouter = require("./routes/index.js");
+const aboutRouter = require("./routes/about.js");
+// end: import routers
+
+// begin: gunakan sebagai routers. parameter pertama adalah path prefix nya
+app.use("/", indexRouter);
+app.use("/about", aboutRouter);
+// end: gunakan sebagai routers. parameter pertama adalah path prefix nya
+
+// jalankan server di port 3000
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000");
+});
+</code></pre>
+<p>Selanjutnya, buat file "/routes/index.js", kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request "/"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "INDEX"
+    res.send("INDEX");
+});
+
+// export modul ini
+module.exports = router;
+</code></pre>
+<p>Selanjutnya, buat file "/routes/about.js", kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request /about.
+// di parameternya tertulis "/" karena saat
+// di-use di root index.js sudah ada path "/about"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "ABOUT"
+    res.send("ABOUT");
+});
+
+// export module ini
+module.exports = router;
+</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>npm install</pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>Nanti akan muncul output di browser:</p>
+<pre>INDEX</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/about">http://localhost:3000/about</a></p>
+<p>Nanti akan muncul output di browser:</p>
+<pre>ABOUT</pre>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Selanjutnya, kita menjalankan perintah npm install tanpa diikuti nama package.</p>
+<p>Itu maksudnya adalah untuk meng-install seluruh dependencies yang tertulis di "/package.json", dalam hal ini hanya Express.</p>
+<p>Pada "/index.js", kita mulai dari mengimpor modul express:</p>
+<pre class="language-javascript line-numbers"><code>// import modules
+const express = require("express");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul express dan menyimpannya dalam const express.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul pihak ke-3, maka kita perlu meng-install-nya terlebih dahulu dengan npm. Kita telah melakukannya dengan npm install tadi.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Pada baris kode selanjutnya, kita menginisialisasi dan membuat objek express:</p>
+<pre class="language-javascript line-numbers"><code>// inisialisasi express
+const app = express();</code></pre>
+<p>Objek tersebut disimpan pada const app.</p>
+<p>Selanjutnya, kita mengimpor routers yang ada di folder "/routes", yakni "/routes/index.js" dan "/routes/about.js":</p>
+<pre class="language-javascript line-numbers"><code>// begin: import routers
+const indexRouter = require("./routes/index.js");
+const aboutRouter = require("./routes/about.js");
+// end: import routers</code></pre>
+<p>Mengimpor router saja tidak cukup.</p>
+<p>Harus di-use juga.</p>
+<p>Kode ini mendaftarkan kedua routers tadi:</p>
+<pre class="language-javascript line-numbers"><code>// begin: gunakan sebagai routers. parameter pertama adalah path prefix nya
+app.use("/", indexRouter);
+app.use("/about", aboutRouter);
+// end: gunakan sebagai routers. parameter pertama adalah path prefix nya</code></pre>
+<p>Perhatikan bahwa parameter pertama adalah path untuk prefix dari masing-masing request di masing-masing router.</p>
+<p>Karena router index prefix-nya "/" maka tidak perlu ada tambahan path saat mengaksesnya.</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a> akan mengakses "/"-nya index.</p>
+<p>Adapun router about prefix-nya "/about", maka untuk mengakses "/" di about harus ditambahkan "/about".</p>
+<p><a href="http://localhost:3000/about">http://localhost:3000/about</a> akan mengakses "/"-nya about.</p>
+<p>Ini adalah isi dari script "/routes/index.js":</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request "/"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "INDEX"
+    res.send("INDEX");
+});
+
+// export modul ini
+module.exports = router;
+</code></pre>
+<p>Dan ini adalah isi dari script "/routes/about.js":</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request /about.
+// di parameternya tertulis "/" karena saat
+// di-use di root index.js sudah ada path "/about"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "ABOUT"
+    res.send("ABOUT");
+});
+
+// export module ini
+module.exports = router;
+</code></pre>
+<p>Tidak ada hal yang aneh pada kedua script di atas kecuali:</p>
+<pre class="language-javascript line-numbers"><code>// export module ini
+module.exports = router;
+</code></pre>
+<p>Maksud dari kode tersebut adalah untuk meng-export script sebagai modul, sehingga dapat di-require seperti yang telah kita lakukan di "/index.js".</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Express router.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Belajar Node.js – Menggunakan Express Middleware</title>
         <author>
@@ -18,7 +220,7 @@
         <id>https://fullstack.rakifsul.my.id/belajar-nodejs-menggunakan-express-middleware.html</id>
             <category term="Dasar Node.js"/>
 
-        <updated>2023-12-23T19:19:50+07:00</updated>
+        <updated>2023-12-23T23:40:21+07:00</updated>
             <summary>
                 <![CDATA[
                     Pendahuluan Dalam menangani request dan response, Express memberi kita kesempatan untuk melakukan sesuatu di antara keduanya. Caranya adalah dengan menggunakan middleware. Middleware merupakan perantara antara request yang masuk dan response yang keluar. Pada prakteknya, middleware bisa digunakan untuk autentikasi, logging, validasi data, dan lain-lain. Secara&hellip;
@@ -117,7 +319,6 @@ app.listen(3000, () =&gt; {
 <p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
 <p>Nanti akan muncul output di command line:</p>
 <pre>MIDDLEWARE 1<br>INDEX<br>MIDDLEWARE 1</pre>
-<p>Di browser Anda.</p>
 <p>Kenapa ada 2 "MIDDLEWARE 1"? Nanti akan saya bahas di bagian pembahasan.</p>
 <p>Jika Anda mengakses:</p>
 <p><a href="http://localhost:3000/about">http://localhost:3000/about</a></p>
