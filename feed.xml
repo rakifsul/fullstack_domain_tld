@@ -3,12 +3,126 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-23T15:00:00+07:00</updated>
+    <updated>2023-12-23T15:37:18+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://fullstack.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar Node.js – Hello World Tanpa Framework</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://fullstack.rakifsul.my.id/belajar-nodejs-hello-world-tanpa-framework.html"/>
+        <id>https://fullstack.rakifsul.my.id/belajar-nodejs-hello-world-tanpa-framework.html</id>
+            <category term="Dasar Node.js"/>
+
+        <updated>2023-12-23T15:37:18+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Pada umumnya, saat kita akan membuat aplikasi web dengan Node.js, maka setidaknya kita akan menyiapkan package-package 3rd party dari NPM. Misalnya saja, Express. Namun, dengan menggunakan Express, sebenarnya kita telah banyak menyembunyikan cara kerja Node.js di belakang layar. Walaupun sebenarnya aplikasi hello world bisa&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Pada umumnya, saat kita akan membuat aplikasi web dengan Node.js, maka setidaknya kita akan menyiapkan package-package 3rd party dari NPM.</p>
+<p>Misalnya saja, Express.</p>
+<p>Namun, dengan menggunakan Express, sebenarnya kita telah banyak menyembunyikan cara kerja Node.js di belakang layar.</p>
+<p>Walaupun sebenarnya aplikasi hello world bisa dibuat dengan menggunakan Express, ada baiknya juga jika kita tahu caranya tanpa menggunakan framework apapun.</p>
+<p>Pada aplikasi ini, kita akan belajar cara meng-import modul, membuat server http, merespons http request dan mengakhirinya, serta membuat server tadi untuk berjalan di port tertentu.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu membuat aplikasi hello world tanpa menggunakan framework.</li>
+<li>Pembaca mengenal modul http milik Node.js.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-2" dengan cara yang telah dijelaskan <a href="https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "tutorial-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import module http
+const http = require("http");
+
+// buat server. dan apapun request nya...
+const server = http.createServer((req, res) =&gt; {
+    // response dengan teks hello world. kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});
+
+// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000">http://localhost:3000</a></p>
+<p>Nanti akan muncul output:</p>
+<pre>Hello World!</pre>
+<p>Di browser Anda.</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Pada "index.js", kita mulai dari mengimpor modul http:</p>
+<pre class="language-javascript line-numbers"><code>// import module http
+const http = require("http");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul http dan menyimpannya dalam const http.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul bawaan, maka kita tidak perlu meng-install-nya terlebih dahulu dengan npm.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Kemudian, kita membuat http server dengan cara ini:</p>
+<pre class="language-javascript line-numbers"><code>// buat server. dan apapun request nya...
+const server = http.createServer((req, res) =&gt; {
+    // response dengan teks hello world. kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});</code></pre>
+<p>req merupakan parameter untuk request.</p>
+<p>res merupakan parameter untuk response.</p>
+<p>Berhubung response-nya adalah sama untuk request apapun, maka, di sini saya tidak melakukan filtering terhadap request yang bisa dilakukan menggunakan parameter req.</p>
+<p>Selanjutnya, kita menjalankan server tersebut dengan cara melakukan listen di port 3000:</p>
+<pre class="language-javascript line-numbers"><code>// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Dalam keadaan ini, port 3000 sedang digunakan oleh aplikasi ini.</p>
+<p>Jadi, jika Anda menjalankan aplikasi lain yang harus menggunakan port 3000, maka kemungkinan aplikasi lain tersebut akan tidak berjalan.</p>
+<p>Hal sebaliknya juga berlaku.</p>
+<p>Jika sebelum aplikasi ini dijalankan port 3000 sedang digunakan, maka aplikasi ini juga tidak akan berjalan.</p>
+<p>Lalu, kenapa kita mengakses aplikasi ini di:</p>
+<p><a href="http://localhost:3000">http://localhost:3000</a></p>
+<p>?</p>
+<p>Itu karena, port 3000 adalah port yang kita gunakan untuk server http di aplikasi ini.</p>
+<p>Adapun domain dari komputer lokal kita adalah localhost.</p>
+<p>Selain itu, kita juga menggunakan protokol http dalam aplikasi ini.</p>
+<p>Maka, yang perlu diakses browser untuk melihat output aplikasi ini adalah:</p>
+<p><a href="http://localhost:3000">http://localhost:3000</a></p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal modul http dan cara menggunakannya.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Belajar Node.js - Menggunakan Nodemon</title>
         <author>
