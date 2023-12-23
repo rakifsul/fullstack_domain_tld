@@ -3,12 +3,193 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-23T16:26:47+07:00</updated>
+    <updated>2023-12-23T19:19:50+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://fullstack.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar Node.js – Menggunakan Express Middleware</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://fullstack.rakifsul.my.id/belajar-nodejs-menggunakan-express-middleware.html"/>
+        <id>https://fullstack.rakifsul.my.id/belajar-nodejs-menggunakan-express-middleware.html</id>
+            <category term="Dasar Node.js"/>
+
+        <updated>2023-12-23T19:19:50+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Dalam menangani request dan response, Express memberi kita kesempatan untuk melakukan sesuatu di antara keduanya. Caranya adalah dengan menggunakan middleware. Middleware merupakan perantara antara request yang masuk dan response yang keluar. Pada prakteknya, middleware bisa digunakan untuk autentikasi, logging, validasi data, dan lain-lain. Secara&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Dalam menangani request dan response, Express memberi kita kesempatan untuk melakukan sesuatu di antara keduanya.</p>
+<p>Caranya adalah dengan menggunakan middleware.</p>
+<p>Middleware merupakan perantara antara request yang masuk dan response yang keluar.</p>
+<p>Pada prakteknya, middleware bisa digunakan untuk autentikasi, logging, validasi data, dan lain-lain.</p>
+<p>Secara umum ada dua jenis middleware di Express.</p>
+<ul>
+<li>Middleware global</li>
+<li>Middleware lokal</li>
+</ul>
+<p>Middleware global berlaku untuk seluruh request handler, sedangkan middleware lokal hanya berlaku pada request handler yang mendaftarkannya.</p>
+<p>Dalam tutorial ini saya akan membahas keduanya.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mengenal middleware dalam Express.</li>
+<li>Pembaca mampu menggunakan middleware dengan Express.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-4" dengan cara yang telah dijelaskan <a href="https://fullstack.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+    "name": "tutorial-4",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import modules
+const express = require("express");
+
+// inisialisasi express
+const app = express();
+
+// middleware ini berjalan secara global
+app.use((req, res, next) =&gt; {
+    console.log("MIDDLEWARE 1");
+    next();
+});
+
+// request get untuk "/" atau dengan kata lain halaman index
+// tanpa middleware lokal
+app.get("/", (req, res) =&gt; {
+    console.log("INDEX");
+    res.send("INDEX");
+});
+
+// request get untuk "/about" atau dengan kata lain halaman about
+// dengan middleware lokal
+// perhatikan bahwa parameter ke-2 diisi function. itu middleware nya
+app.get(
+    "/about",
+    (req, res, next) =&gt; {
+        console.log("MIDDLEWARE 2");
+        next();
+    },
+    (req, res) =&gt; {
+        console.log("ABOUT");
+        res.send("ABOUT");
+    }
+);
+
+// jalankan server di port 3000
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000");
+});
+</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>npm install</pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>Nanti akan muncul output di command line:</p>
+<pre>MIDDLEWARE 1<br>INDEX<br>MIDDLEWARE 1</pre>
+<p>Di browser Anda.</p>
+<p>Kenapa ada 2 "MIDDLEWARE 1"? Nanti akan saya bahas di bagian pembahasan.</p>
+<p>Jika Anda mengakses:</p>
+<p><a href="http://localhost:3000/about">http://localhost:3000/about</a></p>
+<p>Nanti akan muncul output di command line:</p>
+<pre>MIDDLEWARE 1<br>MIDDLEWARE 2<br>ABOUT</pre>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Selanjutnya, kita menjalankan perintah npm install tanpa diikuti nama package.</p>
+<p>Itu maksudnya adalah untuk meng-install seluruh dependencies yang tertulis di "package.json", dalam hal ini hanya Express.</p>
+<p>Pada "index.js", kita mulai dari mengimpor modul express:</p>
+<pre class="language-javascript line-numbers"><code>// import modules
+const express = require("express");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul express dan menyimpannya dalam const express.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul pihak ke-3, maka kita perlu meng-install-nya terlebih dahulu dengan npm. Kita telah melakukannya dengan npm install tadi.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Pada baris kode selanjutnya, kita menginisialisasi dan membuat objek express:</p>
+<pre class="language-javascript line-numbers"><code>// inisialisasi express
+const app = express();</code></pre>
+<p>Objek tersebut disimpan pada const app.</p>
+<p>Selanjutnya, kita mendaftarkan middleware global:</p>
+<pre class="language-javascript line-numbers"><code>// middleware ini berjalan secara global
+app.use((req, res, next) =&gt; {
+    console.log("MIDDLEWARE 1");
+    next();
+});</code></pre>
+<p>Dengan adanya middleware global tersebut, setiap kali ada request apapun yang masuk ke server, maka console.log akan memprint "MIDDLEWARE 1".</p>
+<p>Selanjutnya, kode ini mendaftarkan halaman INDEX:</p>
+<pre class="language-javascript line-numbers"><code>// request get untuk "/" atau dengan kata lain halaman index
+// tanpa middleware lokal
+app.get("/", (req, res) =&gt; {
+    console.log("INDEX");
+    res.send("INDEX");
+});</code></pre>
+<p>Dalam contoh sebelumnya, "MIDDLEWARE 1" muncul dua kali saat mengakses INDEX.</p>
+<p>Itu karena, jika kita mengakses server via web browser, maka biasanya web browser juga akan me-request favicon, jadi ada 2 request.</p>
+<p>Adapun URL dari favicon beda dengan INDEX, sehingga teks "INDEX" hanya muncul satu kali.</p>
+<p>Selanjutnya, kita mendaftarkan halaman ABOUT:</p>
+<pre class="language-javascript line-numbers"><code>// request get untuk "/about" atau dengan kata lain halaman about
+// dengan middleware lokal
+// perhatikan bahwa parameter ke-2 diisi function. itu middleware nya
+app.get(
+    "/about",
+    (req, res, next) =&gt; {
+        console.log("MIDDLEWARE 2");
+        next();
+    },
+    (req, res) =&gt; {
+        console.log("ABOUT");
+        res.send("ABOUT");
+    }
+);</code></pre>
+<p>Tampak bahwa ada "MIDDLEWARE 2" yang terpasang pada request handler.</p>
+<p>Dengan demikian, outputnya, jika Anda belum membersihkan cache browser Anda adalah:</p>
+<pre>MIDDLEWARE 1<br>MIDDLEWARE 2<br>ABOUT</pre>
+<p>Kenapa "MIDDLEWARE 1" hanya ada satu?</p>
+<p>Itu karena, favicon sudah di-request sebelumnya, sehingga browser tidak me-request-nya lagi.</p>
+<p>Kecuali mungkin jika Anda telah menghapus cache browser Anda.</p>
+<p>Selanjutnya, kita menjalankan server tersebut dengan cara melakukan listen di port 3000:</p>
+<pre class="language-javascript line-numbers"><code>// jalankan server di port 3000
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Dalam keadaan ini, port 3000 sedang digunakan oleh aplikasi ini.</p>
+<p>Jadi, jika Anda menjalankan aplikasi lain yang harus menggunakan port 3000, maka kemungkinan aplikasi lain tersebut akan tidak berjalan.</p>
+<p>Hal sebaliknya juga berlaku.</p>
+<p>Jika sebelum aplikasi ini dijalankan port 3000 sedang digunakan, maka aplikasi ini juga tidak akan berjalan.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Express middleware.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Belajar Node.js – Hello World dengan Express</title>
         <author>
