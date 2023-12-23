@@ -3,12 +3,33 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-24T00:07:44+07:00</updated>
+    <updated>2023-12-24T01:18:33+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://fullstack.rakifsul.my.id</id>
 
+    <entry>
+        <title>Contoh Kode Aplikasi Image Gallery dengan Node.js dan EJS</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://fullstack.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html"/>
+        <id>https://fullstack.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html</id>
+            <category term="Premium"/>
+
+        <updated>2023-12-24T01:18:33+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Belum dibuat, baru rencana.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Belum dibuat, baru rencana.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Belajar Node.js - Menampilkan Machine ID</title>
         <author>

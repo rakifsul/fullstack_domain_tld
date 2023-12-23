@@ -10,6 +10,21 @@
     },
     "items": [
         {
+            "id": "https://fullstack.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html",
+            "url": "https://fullstack.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html",
+            "title": "Contoh Kode Aplikasi Image Gallery dengan Node.js dan EJS",
+            "summary": "Belum dibuat, baru rencana.",
+            "content_html": "<p>Belum dibuat, baru rencana.</p>",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Premium"
+            ],
+            "date_published": "2023-12-24T01:18:33+07:00",
+            "date_modified": "2023-12-24T01:18:33+07:00"
+        },
+        {
             "id": "https://fullstack.rakifsul.my.id/belajar-nodejs-menampilkan-machine-id.html",
             "url": "https://fullstack.rakifsul.my.id/belajar-nodejs-menampilkan-machine-id.html",
             "title": "Belajar Node.js - Menampilkan Machine ID",
