@@ -3,7 +3,7 @@
     <title>RAKIFSUL FULL STACK</title>
     <link href="https://fullstack.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://fullstack.rakifsul.my.id" />
-    <updated>2023-12-24T01:18:33+07:00</updated>
+    <updated>2023-12-25T21:42:25+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
@@ -18,15 +18,34 @@
         <id>https://fullstack.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html</id>
             <category term="Premium"/>
 
-        <updated>2023-12-24T01:18:33+07:00</updated>
+        <updated>2023-12-25T21:42:25+07:00</updated>
             <summary>
                 <![CDATA[
-                    Belum dibuat, baru rencana.
+                    Pendahuluan Aplikasi image gallery adalah aplikasi yang berfungsi untuk menyimpan dan menampilkan file gambar. Ini adalah produk source code aplikasi image gallery dengan Node.js dan EJS. Sebagai contoh kode, source code aplikasi image gallery ini bisa menjadi contoh untuk: Berikut ini adalah screencast aplikasinya jika&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>Belum dibuat, baru rencana.</p>
+                <h2>Pendahuluan</h2>
+<p>Aplikasi image gallery adalah aplikasi yang berfungsi untuk menyimpan dan menampilkan file gambar.</p>
+<h2>Produk Apakah Ini?</h2>
+<p>Ini adalah produk source code aplikasi image gallery dengan Node.js dan EJS.</p>
+<h2>Fitur</h2>
+<p>Sebagai contoh kode, source code aplikasi image gallery ini bisa menjadi contoh untuk:</p>
+<ul>
+<li>Cara meng-upload file gambar</li>
+<li>Cara menampilkan file gambar</li>
+<li>Cara men-download file gambar</li>
+<li>Cara membuat entry data file gambar di database</li>
+<li>Cara menghapus entry data file gambar di database</li>
+<li>Cara menghapus file sebenarnya dari filesystem di server</li>
+<li>Cara menerapkan tag pada gambar.</li>
+</ul>
+<h2>Tampilan</h2>
+<p>Berikut ini adalah screencast aplikasinya jika kodenya berhasil dijalankan dengan benar (hanya ilustrasi, hasilnya bisa beda):</p>
+<figure class="post__video"><iframe loading="lazy" width="560" height="314" src="https://www.youtube.com/embed/kBKCBJS2_Zs" allowfullscreen="allowfullscreen" data-mce-fragment="1"></iframe></figure>
+<p>Untuk mendapatkannya, klik tombol di bawah.</p>
+<p class="align-center"><a class="btn coba" style="width: 100%;" href="https://karyakarsa.com/rakifsul/contoh-project-nodejs-aplikasi-image-gallery-mongoose" target="_blank" rel="nofollow noopener noreferrer">beli sekarang</a></p>
             ]]>
         </content>
     </entry>

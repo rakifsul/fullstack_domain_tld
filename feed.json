@@ -13,8 +13,8 @@
             "id": "https://fullstack.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html",
             "url": "https://fullstack.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html",
             "title": "Contoh Kode Aplikasi Image Gallery dengan Node.js dan EJS",
-            "summary": "Belum dibuat, baru rencana.",
-            "content_html": "<p>Belum dibuat, baru rencana.</p>",
+            "summary": "Pendahuluan Aplikasi image gallery adalah aplikasi yang berfungsi untuk menyimpan dan menampilkan file gambar. Ini adalah produk source code aplikasi image gallery dengan Node.js dan EJS. Sebagai contoh kode, source code aplikasi image gallery ini bisa menjadi contoh untuk: Berikut ini adalah screencast aplikasinya jika&hellip;",
+            "content_html": "<h2>Pendahuluan</h2>\n<p>Aplikasi image gallery adalah aplikasi yang berfungsi untuk menyimpan dan menampilkan file gambar.</p>\n<h2>Produk Apakah Ini?</h2>\n<p>Ini adalah produk source code aplikasi image gallery dengan Node.js dan EJS.</p>\n<h2>Fitur</h2>\n<p>Sebagai contoh kode, source code aplikasi image gallery ini bisa menjadi contoh untuk:</p>\n<ul>\n<li>Cara meng-upload file gambar</li>\n<li>Cara menampilkan file gambar</li>\n<li>Cara men-download file gambar</li>\n<li>Cara membuat entry data file gambar di database</li>\n<li>Cara menghapus entry data file gambar di database</li>\n<li>Cara menghapus file sebenarnya dari filesystem di server</li>\n<li>Cara menerapkan tag pada gambar.</li>\n</ul>\n<h2>Tampilan</h2>\n<p>Berikut ini adalah screencast aplikasinya jika kodenya berhasil dijalankan dengan benar (hanya ilustrasi, hasilnya bisa beda):</p>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"560\" height=\"314\" src=\"https://www.youtube.com/embed/kBKCBJS2_Zs\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<p>Untuk mendapatkannya, klik tombol di bawah.</p>\n<p class=\"align-center\"><a class=\"btn coba\" style=\"width: 100%;\" href=\"https://karyakarsa.com/rakifsul/contoh-project-nodejs-aplikasi-image-gallery-mongoose\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">beli sekarang</a></p>",
             "author": {
                 "name": "RAKIFSUL"
             },
@@ -22,7 +22,7 @@
                    "Premium"
             ],
             "date_published": "2023-12-24T01:18:33+07:00",
-            "date_modified": "2023-12-24T01:18:33+07:00"
+            "date_modified": "2023-12-25T21:42:25+07:00"
         },
         {
             "id": "https://fullstack.rakifsul.my.id/belajar-nodejs-menampilkan-machine-id.html",
